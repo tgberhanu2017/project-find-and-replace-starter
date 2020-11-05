@@ -51,8 +51,8 @@ replaceAllButton.addEventListener("click", function() {
                      
             } 
             
-        let newResult = cellElements[j].innerHTML.replace(findValue, replaceValue);
-                console.log(newResult)
+        let findReplace = cellElements[j].innerHTML.replace(findValue, replaceValue);
+                console.log(findReplace)
            
         }
 
