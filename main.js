@@ -5,23 +5,60 @@ const findInput = document.querySelector(".find-input")
 const replaceInput = document.querySelector(".replace-input")
 const replaceAllButton = document.querySelector(".replace-all-button")
 
+
+
+
 // The following variable holds your OUTER ARRAY of row elements.
 // Later you will need an OUTER LOOP to loop over the individual elements within
 // this array.
 const rowElements = document.querySelectorAll(".row")
 
-// When you call the function belwo, it will get and return an INNER ARRAY
+
+
+
+
+
+// When you call the function below, it will get and return an INNER ARRAY
 // containing the cell elements for a given row.
 // Call this function from WITHIN your row elements loop. Then you will, in turn,
 // need to loop over the resulting cell elements. But where should this whole
 // NESTED LOOP go? Think through the user's experience: when should WHAT happen? 
+
+
 function getCellElements (currentRowElement) {
     return currentRowElement.querySelectorAll(".cell")
 }
 
 
-// YOUR CODE GOES HERE
+replaceAllButton.addEventListener("click", function() {
 
+    // getting the values from the input 
+    let findValue = String (findInput.value);
+    let replaceValue = String (replaceInput.value);
+
+    
+    for (let i = 0; i < rowElements.length; i += 1) {
+        let cellElements = getCellElements (rowElements[i])
+
+
+        for (let j = 0; j < cellElements.length; j += 1){
+            console.log (cellElements[j].innerHTML)
+            
+            if (cellElements[j].innerHTML.includes(findValue)){
+                // console.log(cellElements[j])
+                
+               // cellElements[j].innerHTML.replace (replaceValue)
+                     
+            } 
+            
+        let newResult = cellElements[j].innerHTML.replace(findValue, replaceValue);
+                console.log(newResult)
+           
+        }
+
+    
+    }
+});
 
 // One last thing: dedicate very careful attention to using variables and
 // naming them accurately.
@@ -36,3 +73,6 @@ function getCellElements (currentRowElement) {
 //
 // You can, of course, remove any comments in this starter project once
 // you have read them, if you prefer.
+
+
+
